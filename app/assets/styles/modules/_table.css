@@ -1,20 +1,25 @@
 
+
 .table {
+    font-family:'Roboto';
+    letter-spacing: 3px;
 
     &_thead{
     background:$mainBlue;
     color:#eee;
-    & tr {
+    & thead tr {
         background:$mainBlue;
     }
     & th {
     padding:.4rem 3rem;
     }
 
-    &_row:nth-child(even) {
-        background:$mainBlue;
-
-    }
+    
     }
 
 }
+
+tbody tr:nth-child(even) {
+        background:$mainBlue;
+        color:#eee;
+    }

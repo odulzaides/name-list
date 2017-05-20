@@ -9914,10 +9914,11 @@
 	    _classCallCheck(this, Table);
 
 	    _jquery2.default.getJSON('http://localhost:3000/names', function (data) {
+	        var table = (0, _jquery2.default)('#names');
 	        _jquery2.default.each(data, function (key, val) {
-	            console.log(key, _jquery2.default.each(val, function (key, val) {
-	                console.log(val);
-	            }));
+	            var entry = (0, _jquery2.default)('<tr>').append((0, _jquery2.default)('<td>').text(val.firstName), (0, _jquery2.default)('<td>').text(val.lastName), (0, _jquery2.default)('<td>').text(val.address), (0, _jquery2.default)('<td>').text(val.city), (0, _jquery2.default)('<td>').text(val.state), (0, _jquery2.default)('<td>').text(val.zipcode));
+	            console.log(entry[0]);
+	            entry.appendTo(table);
 	        });
 	    });
 	};

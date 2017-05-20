@@ -719,12 +719,18 @@ a {
   }
 }
 
+.table {
+    font-family:'Roboto';
+    letter-spacing: 3px;
+
+}
+
 .table_thead{
   background:#2f5572;
   color:#eee;
 }
 
-.table_thead tr {
+.table_thead thead tr {
   background:#2f5572;
 }
 
@@ -732,6 +738,7 @@ a {
   padding:.4rem 3rem;
 }
 
-.table_thead_row:nth-child(even) {
-  background:#2f5572;
-}
+tbody tr:nth-child(even) {
+        background:#2f5572;
+        color:#eee;
+    }
