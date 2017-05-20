@@ -1,0 +1,31 @@
+    {
+      "names": [        
+      {
+        "firstName": "Oscar",
+        "lastName": "Dulzaides",
+        "address": "2259 A Street",
+        "city": "A City",
+        "state": "ST",
+        "zipcode": 11111
+    },
+     {
+        "firstName": "John",
+        "lastName": "Velasquez",
+        "address": "2259 A Street",
+        "city": "A City",
+        "state": "ST",
+        "zipcode": 11111
+    },
+     {
+        "firstName": "Ernest",
+        "lastName": "Johnson",
+        "address": "2259 A Street",
+        "city": "A City",
+        "state": "ST",
+        "zipcode": 11111
+    }
+      ],
+      "titles":[
+          {"How To":"This is how"}
+      ] 
+    }

@@ -1,0 +1,20 @@
+
+.table {
+
+    &_thead{
+    background:$mainBlue;
+    color:#eee;
+    & tr {
+        background:$mainBlue;
+    }
+    & th {
+    padding:.4rem 3rem;
+    }
+
+    &_row:nth-child(even) {
+        background:$mainBlue;
+
+    }
+    }
+
+}

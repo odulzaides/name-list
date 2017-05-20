@@ -42,27 +42,29 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(2);
-
-	__webpack_require__(3);
-
 	__webpack_require__(4);
 
-/***/ },
+	__webpack_require__(5);
+
+	__webpack_require__(6);
+
+/***/ }),
 /* 1 */,
-/* 2 */
-/***/ function(module, exports) {
+/* 2 */,
+/* 3 */,
+/* 4 */
+/***/ (function(module, exports) {
 
 	'use strict';
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	/*!
-	 * modernizr v3.4.0
+	 * modernizr v3.5.0
 	 * Build https://modernizr.com/download?-flexbox-setclasses-dontmin
 	 *
 	 * Copyright (c)
@@ -98,7 +100,7 @@
 
 	  var ModernizrProto = {
 	    // The current version, dummy
-	    _version: '3.4.0',
+	    _version: '3.5.0',
 
 	    // Any settings that don't work as separate modules
 	    // can go in here as configuration.
@@ -874,9 +876,9 @@
 	  ;
 	})(window, document);
 
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 	 * https://scottjehl.github.io/picturefill/
@@ -2424,9 +2426,9 @@
 	} )( window, document );
 
 
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
 
 	(function(window, factory) {
 		var lazySizes = factory(window, window.document);
@@ -3113,5 +3115,5 @@
 	));
 
 
-/***/ }
+/***/ })
 /******/ ]);
