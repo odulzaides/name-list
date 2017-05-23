@@ -9930,20 +9930,18 @@
 	        key: 'populateTable',
 	        value: function populateTable(filter) {
 	            var table = this.table;
-	            console.log("PopulateTable", filter);
-	            // var filter = 'http://localhost:3000/names';
-	            console.log("URL in populateTable()", filter);
+	            var names = [];
 	            if (!filter) {
 	                filter = 'http://localhost:3000/names';
 	                console.log("I'm running");
 	            } else {
 	                filter = 'http://localhost:3000/names?firstName_like=' + filter;
 	            }
+	            (0, _jquery2.default)('td').parent().remove();
 	            _jquery2.default.getJSON(filter, function (data) {
 	                console.log("getJason", filter);
 	                _jquery2.default.each(data, function (key, val) {
 	                    var entry = (0, _jquery2.default)('<tr>').append((0, _jquery2.default)('<td>').text(val.firstName), (0, _jquery2.default)('<td>').text(val.lastName), (0, _jquery2.default)('<td>').text(val.address), (0, _jquery2.default)('<td>').text(val.city), (0, _jquery2.default)('<td>').text(val.state), (0, _jquery2.default)('<td>').text(val.zipcode));
-	                    // console.log(entry[0]);
 	                    entry.appendTo(table);
 	                });
 	            });
