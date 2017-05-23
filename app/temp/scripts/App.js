@@ -9888,8 +9888,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	console.log('table.js');
-
 	new _tableController2.default();
 
 /***/ }),
@@ -9902,6 +9900,8 @@
 	    value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _jquery = __webpack_require__(1);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
@@ -9910,18 +9910,73 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var Table = function Table() {
-	    _classCallCheck(this, Table);
+	/*TODO : Make all table cells inputs
+	            a. display disabled until they are clicked
+	                click function
+	                    remove disabled
+	                    save to json after clicking outside
+	*/
+	var Table = function () {
+	    function Table() {
+	        _classCallCheck(this, Table);
 
-	    _jquery2.default.getJSON('http://localhost:3000/names', function (data) {
-	        var table = (0, _jquery2.default)('#names');
-	        _jquery2.default.each(data, function (key, val) {
-	            var entry = (0, _jquery2.default)('<tr>').append((0, _jquery2.default)('<td>').text(val.firstName), (0, _jquery2.default)('<td>').text(val.lastName), (0, _jquery2.default)('<td>').text(val.address), (0, _jquery2.default)('<td>').text(val.city), (0, _jquery2.default)('<td>').text(val.state), (0, _jquery2.default)('<td>').text(val.zipcode));
-	            console.log(entry[0]);
-	            entry.appendTo(table);
-	        });
-	    });
-	};
+	        this.table = (0, _jquery2.default)('#names');
+	        this.populateTable();
+	        this.filterResults();
+	        this.addName();
+	    }
+
+	    _createClass(Table, [{
+	        key: 'populateTable',
+	        value: function populateTable(filter) {
+	            var table = this.table;
+	            console.log("PopulateTable", filter);
+	            // var filter = 'http://localhost:3000/names';
+	            console.log("URL in populateTable()", filter);
+	            if (!filter) {
+	                filter = 'http://localhost:3000/names';
+	                console.log("I'm running");
+	            } else {
+	                filter = 'http://localhost:3000/names?firstName_like=' + filter;
+	            }
+	            _jquery2.default.getJSON(filter, function (data) {
+	                console.log("getJason", filter);
+	                _jquery2.default.each(data, function (key, val) {
+	                    var entry = (0, _jquery2.default)('<tr>').append((0, _jquery2.default)('<td>').text(val.firstName), (0, _jquery2.default)('<td>').text(val.lastName), (0, _jquery2.default)('<td>').text(val.address), (0, _jquery2.default)('<td>').text(val.city), (0, _jquery2.default)('<td>').text(val.state), (0, _jquery2.default)('<td>').text(val.zipcode));
+	                    // console.log(entry[0]);
+	                    entry.appendTo(table);
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'filterResults',
+	        value: function filterResults() {
+	            // Filter input event handler
+	            var tableRows = (0, _jquery2.default)('td');
+	            console.log(tableRows[0]);
+	            var that = this;
+	            (0, _jquery2.default)('#filter-submit').click(function () {
+	                var filterInput = (0, _jquery2.default)('#filter');
+	                var url = filterInput.val();
+	                console.log("filtering value  -- ", url);
+	                tableRows.hide();
+	                that.populateTable(url);
+	                return false;
+	            });
+
+	            // alert(filter);
+	        }
+	    }, {
+	        key: 'addName',
+	        value: function addName() {
+	            (0, _jquery2.default)('.add-name-form').click(function () {
+	                console.log("Hello");
+	            });
+	        }
+	    }]);
+
+	    return Table;
+	}();
 
 	exports.default = Table;
 

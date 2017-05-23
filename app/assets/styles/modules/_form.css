@@ -1,0 +1,16 @@
+.form-group {
+    display:flex;
+    margin-top:1rem;
+    margin-left:1rem;
+
+
+    & > label {
+        margin-right:1.5rem;
+        
+    }
+
+    & button {
+        text-align: right;
+        margin:1rem;
+    }
+}
