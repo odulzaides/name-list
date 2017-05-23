@@ -9939,13 +9939,11 @@
 	            (0, _jquery2.default)('td').parent().remove();
 	            _jquery2.default.getJSON(filter, function (data) {
 	                _jquery2.default.each(data, function (key, val) {
-	                    //    var entry = $('<tr>').append(
-	                    //     $.each(val, function (key, val) {
-	                    //         // console.log(val);
-	                    //         $('<td contenteditable="true">').text(val);
-	                    //     }));
-	                    var entry = (0, _jquery2.default)('<tr>').append((0, _jquery2.default)('<td contenteditable="true">').text(val.firstName), (0, _jquery2.default)('<td contenteditable="true">').text(val.lastName), (0, _jquery2.default)('<td contenteditable="true">').text(val.address), (0, _jquery2.default)('<td contenteditable="true">').text(val.city), (0, _jquery2.default)('<td contenteditable="true">').text(val.state), (0, _jquery2.default)('<td contenteditable="true">').text(val.zipcode));
-	                    entry.appendTo(table);
+	                    console.log(val);
+	                    var entry = _jquery2.default.map(val, function (value) {
+	                        return '<td contenteditable="true">' + value + '</td>';
+	                    });
+	                    table.append('<tr>' + entry.join('') + '</tr>');
 	                });
 	            });
 	        }

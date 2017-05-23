@@ -23,20 +23,11 @@ class Table {
         $('td').parent().remove();
         $.getJSON(filter, function (data) {
             $.each(data, function (key, val) {
-            //    var entry = $('<tr>').append(
-            //     $.each(val, function (key, val) {
-            //         // console.log(val);
-            //         $('<td contenteditable="true">').text(val);
-            //     }));
-                var entry = $('<tr>').append(
-                    $('<td contenteditable="true">').text(val.firstName),
-                    $('<td contenteditable="true">').text(val.lastName),
-                    $('<td contenteditable="true">').text(val.address),
-                    $('<td contenteditable="true">').text(val.city),
-                    $('<td contenteditable="true">').text(val.state),
-                    $('<td contenteditable="true">').text(val.zipcode)
-                );
-                entry.appendTo(table);
+                console.log(val)
+               var entry = $.map(val, function(value){
+                   return '<td contenteditable="true">' + value +'</td>';
+               });
+                table.append('<tr>' + entry.join('') + '</tr>');
             });
         });
     }
