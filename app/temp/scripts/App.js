@@ -9933,15 +9933,18 @@
 	            var names = [];
 	            if (!filter) {
 	                filter = 'http://localhost:3000/names';
-	                console.log("I'm running");
 	            } else {
-	                filter = 'http://localhost:3000/names?firstName_like=' + filter;
+	                filter = 'http://localhost:3000/names?lastName_like=' + filter;
 	            }
 	            (0, _jquery2.default)('td').parent().remove();
 	            _jquery2.default.getJSON(filter, function (data) {
-	                console.log("getJason", filter);
 	                _jquery2.default.each(data, function (key, val) {
-	                    var entry = (0, _jquery2.default)('<tr>').append((0, _jquery2.default)('<td>').text(val.firstName), (0, _jquery2.default)('<td>').text(val.lastName), (0, _jquery2.default)('<td>').text(val.address), (0, _jquery2.default)('<td>').text(val.city), (0, _jquery2.default)('<td>').text(val.state), (0, _jquery2.default)('<td>').text(val.zipcode));
+	                    //    var entry = $('<tr>').append(
+	                    //     $.each(val, function (key, val) {
+	                    //         // console.log(val);
+	                    //         $('<td contenteditable="true">').text(val);
+	                    //     }));
+	                    var entry = (0, _jquery2.default)('<tr>').append((0, _jquery2.default)('<td contenteditable="true">').text(val.firstName), (0, _jquery2.default)('<td contenteditable="true">').text(val.lastName), (0, _jquery2.default)('<td contenteditable="true">').text(val.address), (0, _jquery2.default)('<td contenteditable="true">').text(val.city), (0, _jquery2.default)('<td contenteditable="true">').text(val.state), (0, _jquery2.default)('<td contenteditable="true">').text(val.zipcode));
 	                    entry.appendTo(table);
 	                });
 	            });
@@ -9951,7 +9954,6 @@
 	        value: function filterResults() {
 	            // Filter input event handler
 	            var tableRows = (0, _jquery2.default)('td');
-	            console.log(tableRows[0]);
 	            var that = this;
 	            (0, _jquery2.default)('#filter-submit').click(function () {
 	                var filterInput = (0, _jquery2.default)('#filter');

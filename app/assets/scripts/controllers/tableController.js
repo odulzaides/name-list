@@ -17,21 +17,24 @@ class Table {
         var names = [];
         if (!filter) {
             filter = 'http://localhost:3000/names';
-            console.log("I'm running");
         } else {
-            filter = 'http://localhost:3000/names?firstName_like=' + filter;
+            filter = 'http://localhost:3000/names?lastName_like=' + filter;
         }
         $('td').parent().remove();
         $.getJSON(filter, function (data) {
-            console.log("getJason", filter);
             $.each(data, function (key, val) {
+            //    var entry = $('<tr>').append(
+            //     $.each(val, function (key, val) {
+            //         // console.log(val);
+            //         $('<td contenteditable="true">').text(val);
+            //     }));
                 var entry = $('<tr>').append(
-                    $('<td>').text(val.firstName),
-                    $('<td>').text(val.lastName),
-                    $('<td>').text(val.address),
-                    $('<td>').text(val.city),
-                    $('<td>').text(val.state),
-                    $('<td>').text(val.zipcode)
+                    $('<td contenteditable="true">').text(val.firstName),
+                    $('<td contenteditable="true">').text(val.lastName),
+                    $('<td contenteditable="true">').text(val.address),
+                    $('<td contenteditable="true">').text(val.city),
+                    $('<td contenteditable="true">').text(val.state),
+                    $('<td contenteditable="true">').text(val.zipcode)
                 );
                 entry.appendTo(table);
             });
@@ -40,7 +43,6 @@ class Table {
     filterResults() {
         // Filter input event handler
         var tableRows = $('td');
-        console.log(tableRows[0]);
         var that = this;
         $('#filter-submit').click(function () {
             var filterInput = $('#filter');

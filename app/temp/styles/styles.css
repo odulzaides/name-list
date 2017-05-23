@@ -751,9 +751,6 @@ tbody tr:nth-child(even) {
 }
 
 .form-group {
-    display:-webkit-box;
-    display:-ms-flexbox;
-    display:flex;
     margin-top:1rem;
     margin-left:1rem;
 }
