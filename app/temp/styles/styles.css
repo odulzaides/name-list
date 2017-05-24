@@ -439,80 +439,12 @@ a {
   color: #d59541;
 }
 
-.large-hero {
-  border-bottom: 10px solid #2f5572;
-  position: relative;
-
+.container {
+  width:80%;
+  margin:0 auto;
 }
 
-.large-hero__image {
-  display: block;
-}
-
-.large-hero__text-content {
-  padding-top: 88px;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  left: 0;
-  width: 100%;
-  text-align: center;
-}
-
-@media (min-width: 800px) {
-
-  .large-hero__text-content {
-    padding-top: 60px;
-  }
-}
-
-.large-hero__title {
-  font-weight: 300;
-  color: #2f5572;
-  margin: 0;
-  font-size: 2.4rem;
-}
-
-@media (min-width: 530px) {
-
-  .large-hero__title {
-    font-size: 4.8rem;
-  }
-}
-
-.large-hero__subtitle {
-  font-weight: 300;
-  color: #2f5572;
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-@media (min-width: 530px) {
-
-  .large-hero__subtitle {
-    font-size: 2.9rem;
-  }
-}
-
-.large-hero__description {
-  color: #FFF;
-  font-size: 1.1rem;
-  font-weight: 100;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, .1);
-  max-width: 30rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (min-width: 530px) {
-
-  .large-hero__description {
-    font-size: 1.875rem;
-  }
-}
-
-.site-header {
+.nav-header {
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
@@ -520,14 +452,89 @@ a {
     background: #2f5572;
 }
 
-.site-header__logo {
+.nav-header__logo {
   background:green;
 }
 
-.site-header--nav {
-  position:relative;
+.nav-header--nav {
+  position:absolute;
   right:10px;
   color:white;
+}
+
+.primary-nav {
+  padding-top: 10px;
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav {
+    padding-top: 0;
+  }
+}
+
+.primary-nav--pull-right {
+  float: right;
+}
+
+.primary-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.primary-nav ul::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.primary-nav li {
+  list-style: none;
+  display: inline-block;
+  padding-right: 7px;
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav li {
+    padding-right: 20px;
+    float: left;
+    display: block;
+  }
+}
+
+.primary-nav li:last-child {
+  padding-right: 0;
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav li:last-child {
+    padding-right: 20px;
+  }
+}
+
+.primary-nav a {
+  color: #FFF;
+  font-weight: 300;
+  text-decoration: none;
+  display: block;
+  padding: 5px 8px;
+  font-size: .8rem;
+  background-color: rgba(47,85,114, .5);
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav a {
+    font-size: 1rem;
+    padding: 12px 0;
+    background-color: transparent;
+  }
+
+  .primary-nav a.is-current-link {
+    color: #fabb69;
+  }
 }
 
 .site-header {

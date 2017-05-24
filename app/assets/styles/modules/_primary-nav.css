@@ -6,9 +6,7 @@
   }
 
   &--pull-right {
-    @mixin atMedium {
       float: right;
-    }
   }
 
   ul {

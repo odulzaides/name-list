@@ -20,63 +20,76 @@
 </head>
 
 <body>
-  <form id="filter-results">
-    <div class="form-group">
-      <label for="filter-criteria">Filter Results by: </label>
-      <input id="filter" type="text">
-      <button id="filter-submit">submit</button>
+  <div class="nav-header">
+    <div class="nav-header__logo">
+      <h1>UofSecaucus</h1>
     </div>
-  </form>
-  <table class="table" id="names">
-    <thead class="table_thead">
-      <tr>
-        <th colspan="7">
-          <h3>List of Names</h3>
-        </th>
-      </tr>
-      <tr>
-        <th>ID</th>
-        <th>First name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip</th>
-      </tr>
-
-    </thead>
-  </table>
-
-  <div class="add-name-form">
-    <form>
+    <nav class=" nav-header--nav primary-nav--pull-right">
+      <ul class="primary-nav  ">
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container">
+    <form id="filter-results">
       <div class="form-group">
-        <label for="firstName">First Name: </label>
-        <input name="firstName" type="text">
-      </div>
-      <div class="form-group">
-        <label for="lastName">Last Name: </label>
-        <input name="lastName" type="text">
-      </div>
-      <div class="form-group">
-        <label for="address">Street Address: </label>
-        <input name="address" type="text">
-      </div>
-      <div class="form-group">
-        <label for="city">City: </label>
-        <input name="city" type="text">
-      </div>
-      <div class="form-group">
-        <label for="state">State: </label>
-        <input name="state" type="text">
-      </div>
-      <div class="form-group">
-        <label for="zipcode">Zip Code: </label>
-        <input name="zipcode" type="text">
-      </div>
-      <div class="form-group">
-        <button type="submit">Add Name</button>
+        <label for="filter-criteria">Filter Results by: </label>
+        <input id="filter" type="text">
+        <button id="filter-submit">submit</button>
       </div>
     </form>
+    <table class="table" id="names">
+      <thead class="table_thead">
+        <tr>
+          <th colspan="7">
+            <h3>List of Names</h3>
+          </th>
+        </tr>
+        <tr>
+          <th>ID</th>
+          <th>First name</th>
+          <th>Last Name</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+        </tr>
+
+      </thead>
+    </table>
+    <div class="add-name-form">
+      <form>
+        <div class="form-group">
+          <label for="firstName">First Name: </label>
+          <input name="firstName" type="text">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name: </label>
+          <input name="lastName" type="text">
+        </div>
+        <div class="form-group">
+          <label for="address">Street Address: </label>
+          <input name="address" type="text">
+        </div>
+        <div class="form-group">
+          <label for="city">City: </label>
+          <input name="city" type="text">
+        </div>
+        <div class="form-group">
+          <label for="state">State: </label>
+          <input name="state" type="text">
+        </div>
+        <div class="form-group">
+          <label for="zipcode">Zip Code: </label>
+          <input name="zipcode" type="text">
+        </div>
+        <div class="form-group">
+          <button type="submit">Add Name</button>
+        </div>
+      </form>
+    </div>
   </div>
   <!-- build:js ./assets/scripts/App.js -->
   <script src="/temp/scripts/App.js"></script>

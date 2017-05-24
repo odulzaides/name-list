@@ -1,4 +1,4 @@
-.site-header {
+.nav-header {
     display:flex;
     position:relative;
     background: $mainBlue;
@@ -8,7 +8,7 @@
 
     }
     &--nav {
-        position:relative;
+        position:absolute;
         right:10px;
         color:white;
     }
