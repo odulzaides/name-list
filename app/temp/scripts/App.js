@@ -9934,7 +9934,7 @@
 	            if (!filter) {
 	                filter = 'http://localhost:3000/names';
 	            } else {
-	                filter = 'http://localhost:3000/names?lastName_like=' + filter;
+	                filter = 'http://localhost:3000/names?q=' + filter;
 	            }
 	            (0, _jquery2.default)('td').parent().remove();
 	            _jquery2.default.getJSON(filter, function (data) {

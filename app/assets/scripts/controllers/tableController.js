@@ -18,7 +18,7 @@ class Table {
         if (!filter) {
             filter = 'http://localhost:3000/names';
         } else {
-            filter = 'http://localhost:3000/names?lastName_like=' + filter;
+            filter = 'http://localhost:3000/names?q=' + filter;
         }
         $('td').parent().remove();
         $.getJSON(filter, function (data) {
