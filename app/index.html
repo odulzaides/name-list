@@ -4,7 +4,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!--<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>-->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
   <title>Clear View Escapes</title>
   <meta name="keywords" content="">
   <meta name="description" content="">
@@ -16,7 +16,6 @@
   <!-- build:js ./assets/scripts/Vendor.js -->
   <script src="/temp/scripts/Vendor.js"></script>
   <!-- endbuild -->
-
 </head>
 
 <body>
@@ -33,21 +32,22 @@
     </nav>
   </div>
   <div class="container">
+    <h1>Some header</h1>
     <!--Filter results-->
-    <div>
+    <div class="filter-add-area">
       <form id="filter-results">
         <div class="form-group">
           <label for="filter-criteria">Filter Results by: </label>
           <input id="filter" type="text">
           <button class="add-name-form__submit-filter-btn" id="filter-submit">Filter Results</button>
         </div>
-        </form>
-    </div>
-
-    <div class="add-name-form__add-record">
-      <a href="#" class="js-show-add-record">
-        <span class="add-name-form__icon">+</span> Add New Record
-      </a>
+      </form>
+      <!--Add name form show button-->
+          <div class="add-name-form__add-record">
+            <a href="#" class="js-show-add-record">
+              <span class="add-name-form__icon">+</span> Add New Record
+            </a>
+          </div>
     </div>
     <div class="add-name-form">
       <form>
@@ -82,7 +82,6 @@
     </div>
     </form>
     <!-- End Add Name Form -->
-
     <table class="table" id="names">
       <thead class="table_thead">
         <tr>

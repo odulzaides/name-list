@@ -3,7 +3,7 @@
   padding-left: 18px;
   padding-right: 18px;
   max-width: 1236px;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
 
   &--medium {
