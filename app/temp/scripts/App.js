@@ -56,6 +56,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	// import Database from './controllers/dbController';
+
+	// new Database();
+	new _table2.default();
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9882,16 +9887,151 @@
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(1);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
 	var _tableController = __webpack_require__(3);
 
 	var _tableController2 = _interopRequireDefault(_tableController);
 
+	var _dbController = __webpack_require__(5);
+
+	var _dbController2 = _interopRequireDefault(_dbController);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var TableView = function () {
+	    function TableView() {
+	        _classCallCheck(this, TableView);
+
+	        this.events();
+	    }
+
+	    _createClass(TableView, [{
+	        key: 'events',
+	        value: function events() {
+	            // Toggle th add record form
+	            (0, _jquery2.default)('.js-show-add-record').click(function () {
+	                (0, _jquery2.default)('.add-name-form').toggle();
+	            });
+	            // Add record to db
+	            (0, _jquery2.default)('#add-record-submit').click(function () {
+	                console.log("Clicked add record button");
+	                db.addName();
+	            });
+	        }
+	    }]);
+
+	    return TableView;
+	}();
+
+	var db = new _dbController2.default();
 	new _tableController2.default();
+	exports.default = TableView;
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(1);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	__webpack_require__(4);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	/*TODO : Make all table cells inputs
+	            a. display disabled until they are clicked
+	                click function
+	                    remove disabled
+	                    save to json after clicking outside
+	*/
+
+	var TableController = function () {
+	    function TableController() {
+	        _classCallCheck(this, TableController);
+
+	        this.table = (0, _jquery2.default)('#names');
+	        this.populateTable();
+	        this.filterResults();
+	    }
+
+	    _createClass(TableController, [{
+	        key: 'populateTable',
+	        value: function populateTable(filter) {
+	            console.log("Table Controller");
+	            var table = this.table;
+	            var names = [];
+	            if (!filter) {
+	                filter = 'http://localhost:3000/names';
+	            } else {
+	                filter = 'http://localhost:3000/names?q=' + filter;
+	            }
+	            (0, _jquery2.default)('td').parent().remove();
+	            _jquery2.default.getJSON(filter, function (data) {
+	                _jquery2.default.each(data, function (key, val) {
+	                    var entry = _jquery2.default.map(val, function (value) {
+	                        return '<td contenteditable="true">' + value + '</td>';
+	                    });
+	                    table.append('<tr>' + entry.join('') + '</tr>');
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'filterResults',
+	        value: function filterResults() {
+	            // Filter input event handler
+	            var tableRows = (0, _jquery2.default)('td');
+	            var that = this;
+	            (0, _jquery2.default)('#filter-submit').click(function () {
+	                var filterInput = (0, _jquery2.default)('#filter');
+	                var url = filterInput.val();
+	                tableRows.hide();
+	                that.populateTable(url);
+	                return false;
+	            });
+	        }
+	    }]);
+
+	    return TableController;
+	}();
+
+	exports.default = TableController;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	function generateId() {
+	    return Math.floor(Math.random() * Math.random() * 10000);
+	}
+
+	// alert(generateId());
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9910,73 +10050,38 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	/*TODO : Make all table cells inputs
-	            a. display disabled until they are clicked
-	                click function
-	                    remove disabled
-	                    save to json after clicking outside
-	*/
-	var Table = function () {
-	    function Table() {
-	        _classCallCheck(this, Table);
+	var Database = function () {
+	    function Database() {
+	        // console.log("Datbase controller Class");
 
-	        this.table = (0, _jquery2.default)('#names');
-	        this.populateTable();
-	        this.filterResults();
-	        this.addName();
+	        _classCallCheck(this, Database);
 	    }
 
-	    _createClass(Table, [{
-	        key: 'populateTable',
-	        value: function populateTable(filter) {
-	            var table = this.table;
-	            var names = [];
-	            if (!filter) {
-	                filter = 'http://localhost:3000/names';
-	            } else {
-	                filter = 'http://localhost:3000/names?q=' + filter;
-	            }
-	            (0, _jquery2.default)('td').parent().remove();
-	            _jquery2.default.getJSON(filter, function (data) {
-	                _jquery2.default.each(data, function (key, val) {
-	                    console.log(val);
-	                    var entry = _jquery2.default.map(val, function (value) {
-	                        return '<td contenteditable="true">' + value + '</td>';
-	                    });
-	                    table.append('<tr>' + entry.join('') + '</tr>');
-	                });
-	            });
-	        }
-	    }, {
-	        key: 'filterResults',
-	        value: function filterResults() {
-	            // Filter input event handler
-	            var tableRows = (0, _jquery2.default)('td');
-	            var that = this;
-	            (0, _jquery2.default)('#filter-submit').click(function () {
-	                var filterInput = (0, _jquery2.default)('#filter');
-	                var url = filterInput.val();
-	                console.log("filtering value  -- ", url);
-	                tableRows.hide();
-	                that.populateTable(url);
-	                return false;
-	            });
-
-	            // alert(filter);
-	        }
-	    }, {
+	    _createClass(Database, [{
 	        key: 'addName',
 	        value: function addName() {
-	            (0, _jquery2.default)('.add-name-form').click(function () {
-	                console.log("Hello");
+	            console.log("addName invocked");
+	            _jquery2.default.ajax({
+	                url: 'http://localhost:3000/names',
+	                type: 'POST',
+	                contenttype: 'application/json; charset=utf-8',
+	                data: {
+	                    "firstName": (0, _jquery2.default)('#firstName').val(),
+	                    "lastName": (0, _jquery2.default)('#lastName').val(),
+	                    "address": (0, _jquery2.default)('#address').val(),
+	                    "city": (0, _jquery2.default)('#city').val(),
+	                    "state": (0, _jquery2.default)('#state').val(),
+	                    "zipcode": (0, _jquery2.default)('#zipcode').val()
+	                },
+	                datatype: 'JSON'
 	            });
 	        }
 	    }]);
 
-	    return Table;
+	    return Database;
 	}();
 
-	exports.default = Table;
+	exports.default = Database;
 
 /***/ })
 /******/ ]);

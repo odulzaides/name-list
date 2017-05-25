@@ -1,6 +1,10 @@
 
 import $ from 'jquery';
-import table from './view/table';
+import TableView from './view/table';
+// import Database from './controllers/dbController';
+
+// new Database();
+new TableView();
 
 
 

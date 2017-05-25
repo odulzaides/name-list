@@ -9,6 +9,11 @@
     "picturefill": "^3.0.2",
     "waypoints": "^4.0.0"
   },
+  "scripts":{
+    "json-server": "json-server app/assets/scripts/data/db.json ",
+    "start-watch": "gulp watch",
+    "start-dev": "npm run json-server | npm run start-watch"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.10.4",

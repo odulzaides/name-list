@@ -453,7 +453,8 @@ a {
 }
 
 .nav-header__logo {
-  background:green;
+  background:#d59541;
+  padding:0 1rem;
 }
 
 .nav-header--nav {
@@ -757,16 +758,63 @@ tbody tr:nth-child(even) {
 
 }
 
+.add-name-form {
+    display:none;
+    width:80%;
+    background: #d59541;
+    color:#2f5572;
+    margin-left:0;
+}
+
+.add-name-form__submit-filter-btn{
+  background:#d59541;
+  border:1px inset #2f5572;
+  border-radius:3px;
+  color:#2f5572;
+  padding: .2rem .5rem;
+  padding-left:0;
+  margin-bottom:-1rem;
+}
+
+.add-name-form__add-record {
+  margin:1rem 0;
+}
+
+.add-name-form__add-record a {
+  text-decoration: none;
+  background:#d59541;
+  border:1px inset #2f5572;
+  border-radius:3px;
+  color:#2f5572;
+  padding: .2rem .5rem;
+  padding-left:0;
+  margin-bottom:1rem;
+}
+
+.add-name-form__icon{
+  font-size:1rem;
+  background:#d59541;
+  color:#2f5572;
+  margin:1rem;
+}
+
 .form-group {
     margin-top:1rem;
     margin-left:1rem;
+    margin-bottom: 1rem;
+   
 }
 
 .form-group > label {
   margin-right:1.5rem;
+  text-align:right;
 }
 
 .form-group button {
   text-align: right;
   margin:1rem;
+  padding:.2rem 1rem;
+  border:#d59541;
+  background: #d59541;
+  color:#2f5572;
 }

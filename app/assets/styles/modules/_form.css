@@ -1,15 +1,54 @@
+.add-name-form {
+    display:none;
+    width:80%;
+    background: $mainOrange;
+    color:$mainBlue;
+    margin-left:0;
+ &__submit-filter-btn{
+     background:$mainOrange;
+            border:1px inset $mainBlue;
+            border-radius:3px;
+            color:$mainBlue;
+            padding: .2rem .5rem;
+            padding-left:0;
+            margin-bottom:-1rem;
+ }
+    &__add-record { 
+            margin:1rem 0;;
+        & a {
+            text-decoration: none;  
+            background:$mainOrange;
+            border:1px inset $mainBlue;
+            border-radius:3px;
+            color:$mainBlue;
+            padding: .2rem .5rem;
+            padding-left:0;
+            margin-bottom:1rem;
+        }
+    }
+     &__icon{
+        font-size:1rem;
+        background:$mainOrange;
+        color:$mainBlue;
+        margin:1rem;
+    }
+}
 .form-group {
     margin-top:1rem;
     margin-left:1rem;
-
-
+    margin-bottom: 1rem;
     & > label {
         margin-right:1.5rem;
-        
+        text-align:right;
     }
 
     & button {
         text-align: right;
         margin:1rem;
+        padding:.2rem 1rem;
+        border:$mainOrange;
+        background: $mainOrange;
+        color:$mainBlue;  
     }
+   
 }

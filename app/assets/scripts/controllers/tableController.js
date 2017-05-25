@@ -1,18 +1,21 @@
 import $ from 'jquery';
+import '../helpers/helpers';
+
 /*TODO : Make all table cells inputs
             a. display disabled until they are clicked
                 click function
                     remove disabled
                     save to json after clicking outside
 */
-class Table {
+
+class TableController {
     constructor() {
         this.table = $('#names');
         this.populateTable();
         this.filterResults();
-        this.addName();
     }
     populateTable(filter) {
+        console.log("Table Controller");
         var table = this.table;
         var names = [];
         if (!filter) {
@@ -23,10 +26,9 @@ class Table {
         $('td').parent().remove();
         $.getJSON(filter, function (data) {
             $.each(data, function (key, val) {
-                console.log(val)
-               var entry = $.map(val, function(value){
-                   return '<td contenteditable="true">' + value +'</td>';
-               });
+                var entry = $.map(val, function (value) {
+                    return '<td contenteditable="true">' + value + '</td>';
+                });
                 table.append('<tr>' + entry.join('') + '</tr>');
             });
         });
@@ -38,20 +40,10 @@ class Table {
         $('#filter-submit').click(function () {
             var filterInput = $('#filter');
             var url = filterInput.val();
-            console.log("filtering value  -- ", url);
             tableRows.hide();
             that.populateTable(url);
             return false;
-        })
-
-        // alert(filter);
+        });
     }
-    addName() {
-        $('.add-name-form').click(function () {
-            console.log("Hello");
-        })
-    }
-
 }
-
-export default Table;
+export default TableController;

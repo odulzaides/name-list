@@ -4,7 +4,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+  <!--<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>-->
   <title>Clear View Escapes</title>
   <meta name="keywords" content="">
   <meta name="description" content="">
@@ -33,13 +33,56 @@
     </nav>
   </div>
   <div class="container">
-    <form id="filter-results">
-      <div class="form-group">
-        <label for="filter-criteria">Filter Results by: </label>
-        <input id="filter" type="text">
-        <button id="filter-submit">submit</button>
-      </div>
+    <!--Filter results-->
+    <div>
+      <form id="filter-results">
+        <div class="form-group">
+          <label for="filter-criteria">Filter Results by: </label>
+          <input id="filter" type="text">
+          <button class="add-name-form__submit-filter-btn" id="filter-submit">Filter Results</button>
+        </div>
+        </form>
+    </div>
+
+    <div class="add-name-form__add-record">
+      <a href="#" class="js-show-add-record">
+        <span class="add-name-form__icon">+</span> Add New Record
+      </a>
+    </div>
+    <div class="add-name-form">
+      <form>
+        <div class="form-group">
+          <label for="firstName">First Name: </label>
+          <input id="firstName" name="firstName" type="text">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name: </label>
+          <input id="lastName" name="lastName" type="text">
+        </div>
+        <div class="form-group">
+          <label for="address">Street Address: </label>
+          <input id="address" name="address" type="text">
+        </div>
+        <div class="form-group">
+          <label for="city">City: </label>
+          <input id="city" name="city" type="text">
+        </div>
+        <div class="form-group">
+          <label for="state">State: </label>
+          <input id="state" name="state" type="text">
+        </div>
+        <div class="form-group">
+          <label for="zipcode">Zip Code: </label>
+          <input id="zipcode" name="zipcode" type="text">
+        </div>
+        <div class="form-group">
+          <button id="add-record-submit" type="submit">Add Name</button>
+        </div>
+      </form>
+    </div>
     </form>
+    <!-- End Add Name Form -->
+
     <table class="table" id="names">
       <thead class="table_thead">
         <tr>
@@ -48,48 +91,16 @@
           </th>
         </tr>
         <tr>
-          <th>ID</th>
           <th>First name</th>
           <th>Last Name</th>
           <th>Address</th>
           <th>City</th>
           <th>State</th>
           <th>Zip</th>
+          <th>ID</th>
         </tr>
-
       </thead>
     </table>
-    <div class="add-name-form">
-      <form>
-        <div class="form-group">
-          <label for="firstName">First Name: </label>
-          <input name="firstName" type="text">
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name: </label>
-          <input name="lastName" type="text">
-        </div>
-        <div class="form-group">
-          <label for="address">Street Address: </label>
-          <input name="address" type="text">
-        </div>
-        <div class="form-group">
-          <label for="city">City: </label>
-          <input name="city" type="text">
-        </div>
-        <div class="form-group">
-          <label for="state">State: </label>
-          <input name="state" type="text">
-        </div>
-        <div class="form-group">
-          <label for="zipcode">Zip Code: </label>
-          <input name="zipcode" type="text">
-        </div>
-        <div class="form-group">
-          <button type="submit">Add Name</button>
-        </div>
-      </form>
-    </div>
   </div>
   <!-- build:js ./assets/scripts/App.js -->
   <script src="/temp/scripts/App.js"></script>

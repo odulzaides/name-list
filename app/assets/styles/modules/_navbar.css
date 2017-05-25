@@ -4,7 +4,8 @@
     background: $mainBlue;
 
     &__logo {
-    background:green;
+    background:$mainOrange;
+    padding:0 1rem;
 
     }
     &--nav {
